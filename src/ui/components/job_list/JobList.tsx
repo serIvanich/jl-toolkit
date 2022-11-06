@@ -1,5 +1,3 @@
+import React from 'react'
 
-
-export const JobList = () => {
-  return <div>job list</div>
-}
+export const JobList = () => <div>job list</div>

@@ -1,3 +1,3 @@
-export const JobPage = () => {
-  return <div>job page</div>
-}
+import React from 'react'
+
+export const JobPage = () => <div>job page</div>

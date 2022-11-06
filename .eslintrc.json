@@ -4,47 +4,63 @@
     "es2021": true
   },
   "extends": [
+    "airbnb-base",
     "airbnb-typescript",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jest/recommended",
-    "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "plugin:import/typescript",
+    "prettier"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
+  "plugins": ["react", "@typescript-eslint", "react-hooks", "autofix"],
+
   "rules": {
-    "react/react-in-jsx-scope": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "react/jsx-filename-extension": [
-      "error",
-      { "extensions": [".jsx", ".tsx"] }
-    ],
-    "prettier/prettier": [
+    "import/prefer-default-export": 0,
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx", ".ts"] }],
+    "arrow-body-style": ["error", "as-needed"],
+    "react/self-closing-comp": [
       "error",
       {
-        "endOfLine": "auto"
+        "component": true,
+        "html": true
       }
-    ]
+    ],
+    "autofix/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true,
+        "destructuredArrayIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports"
+      }
+    ],
+    "no-param-reassign": [
+      1,
+      { "props": true, "ignorePropertyModificationsFor": ["state"] }
+    ],
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }

@@ -3,15 +3,22 @@ import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 
 import { appSelectors } from '../../bll/app-reducer'
-import { JobList } from '../components/job_list/JobList'
-import { JobPage } from '../components/job_page/JobPage'
+import { jobListActions, jobListSelectors } from '../../bll/job-list-reducer'
+import { useActions } from '../../utils/redux-utils'
+
+import { JobList } from '../components/job-list/JobList'
+import { JobPage } from '../components/job-page/JobPage'
 import './App.css'
 
 function App() {
   const appStatus = useSelector(appSelectors.selectorStatus)
+  const jobList = useSelector(jobListSelectors.selectorJobList)
+  const { fetchJodList } = useActions(jobListActions)
   useEffect(() => {
-    // projectApi.getJob()
-  }, [])
+    if (!jobList.length) {
+      fetchJodList()
+    }
+  }, [fetchJodList, jobList.length])
 
   return (
     <div className='App'>

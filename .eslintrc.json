@@ -28,7 +28,7 @@
 
   "rules": {
     "import/prefer-default-export": 0,
-    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx", ".ts"] }],
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx", ".jsx"] }],
     "arrow-body-style": ["error", "as-needed"],
     "react/self-closing-comp": [
       "error",
@@ -60,7 +60,11 @@
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+      
     }
   }
 }
+//"typescript": {}

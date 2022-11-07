@@ -1,5 +1,5 @@
-import type { ActionCreatorsMapObject } from '@reduxjs/toolkit'
-import { bindActionCreators } from '@reduxjs/toolkit'
+import type { ActionCreatorsMapObject } from 'redux'
+import { bindActionCreators } from 'redux'
 import { useMemo } from 'react'
 import { useAppDispatch } from './types'
 
